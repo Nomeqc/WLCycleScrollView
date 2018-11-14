@@ -20,7 +20,20 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6of-6d-eVf">
+                                <rect key="frame" x="156.5" y="487" width="62" height="30"/>
+                                <state key="normal" title="改变大小"/>
+                                <connections>
+                                    <action selector="didTapChangeFrameButton:" destination="whP-gf-Uak" eventType="touchUpInside" id="0cA-Za-00n"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6of-6d-eVf" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="W3h-lr-z3l"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="6of-6d-eVf" secondAttribute="bottom" constant="150" id="eMB-2W-meS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0FP-Jr-7Vh">
                         <barButtonItem key="leftBarButtonItem" title="随机数据" id="9iZ-a1-Yur">

@@ -58,6 +58,19 @@
     }
 }
 
+- (IBAction)didTapChangeFrameButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    _cycleScrollView.frame = ({
+        CGRect frame = _cycleScrollView.frame;
+        if (sender.selected) {
+            frame.size.height += 100;
+        } else {
+            frame.size.height -= 100;
+        }
+        frame;
+    });
+}
+
 // MARK: WLCycleScrollViewAccessoryProvider
 - (UIView * _Nonnull )accessoryView {
     return ({
@@ -89,6 +102,8 @@
     NSString *imageUrl = _images[index];
     return ({
         UIImageView *view = [[UIImageView alloc] init];
+        view.layer.masksToBounds = YES;
+        view.contentMode =  UIViewContentModeScaleAspectFill;
         [view sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
         view;
     });

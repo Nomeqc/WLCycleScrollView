@@ -80,11 +80,24 @@
     [self reloadData];
 }
 
+- (void)setHidesAccessoryViewForSinglePage:(BOOL)hidesAccessoryViewForSinglePage {
+    _hidesAccessoryViewForSinglePage = hidesAccessoryViewForSinglePage;
+    _accessoryView.hidden = (hidesAccessoryViewForSinglePage && _numberOfPages == 1);
+}
+
 - (void)setFrame:(CGRect)frame {
+    BOOL sizeChanged = !CGSizeEqualToSize(frame.size, self.bounds.size);
     [super setFrame:frame];
     _scrollView.frame = self.bounds;
-    [self adjustScrollViewContentSize];
-    [self updateAccessoryView];
+    ///只有当size改变后才进行相关调整
+    if (sizeChanged) {
+        [self adjustScrollViewContentSize];
+        [self loadData];
+        [self updateAccessoryView];
+        if (_autoScrollEnabled && self.window) {
+            [self setStopScroll:NO];
+        }
+    }
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
@@ -95,11 +108,6 @@
 
 - (void)adjustScrollViewContentSize {
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * (_numberOfPages > 1? 3 : 1), CGRectGetHeight(self.bounds));
-    CGFloat contentOffsetX = 0.f;
-    if (_numberOfPages > 1) {
-        contentOffsetX = CGRectGetWidth(self.bounds);
-    }
-    [_scrollView setContentOffset:CGPointMake(contentOffsetX, 0.f)];
 }
 
 - (void)updateAccessoryView {
@@ -245,7 +253,7 @@
 }
 
 - (void)appWillEnterForeground {
-    if (self.window && _autoScrollEnabled) {
+    if (_autoScrollEnabled && self.window) {
         [self setStopScroll:NO];
     }
 }
