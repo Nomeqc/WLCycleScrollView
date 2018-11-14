@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WLCycleScrollView'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = '简单易用的、灵活易扩展的循环滚动视图'
 
 # This description is used to generate tags and improve search results.
