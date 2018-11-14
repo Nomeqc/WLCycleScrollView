@@ -13,7 +13,65 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    for (NSInteger i = 0; i < 100; i++) {
+//        NSUInteger j = i & 0xFFFFFFFFFFFFFFFELL;
+//        NSLog(@"i:%@==>%@",@(i),@(j));
+//        NSLog(@"more:%@", @(i - i % 2));
+        
+        NSInteger midIndex = [self currentViewMiddleIndexForCount:i];
+        NSLog(@"count:%@,midIndex:%@", @(i), @(midIndex));
+        NSLog(@"more:%@", @(MAX(0, (i / 2 + i % 2) - 1)));
+    }
+    NSInteger i = 0;
+    
+    
+    NSNumber *n1 = @(1);
+    NSNumber *n2 = @(2);
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:n1];
+    [array addObject:n2];
+    [array addObject:n1];
+    [array addObject:n1];
+    
     return YES;
+}
+
+- (NSInteger)currentViewMiddleIndexForCount:(NSUInteger)count {
+    NSInteger currentViewCount = count;
+    
+    NSInteger v3 = currentViewCount;
+    NSInteger v4 = 0;
+    if (v3 >= 0) {
+        v4 = v3;
+    } else {
+        v4 = v3 + 1;
+    }
+    NSInteger v5 = currentViewCount;
+    NSInteger v6 = 0;
+    if (v5 >= 0) {
+        v6 = v5;
+    } else {
+        v6 = v5 + 1;
+    }
+    if (v5 - (v6 - v6 % 2) + v4 / 2 < 2) {
+        return 0;
+    }
+    NSInteger v7 = currentViewCount;
+    NSInteger v8 = 0;
+    if (v7 >= 0) {
+        v8 = v7;
+    } else {
+        v8 = v7 + 1;
+    }
+    NSInteger v9 = currentViewCount;
+    NSInteger v10 = 0;
+    if (v9 >= 0) {
+        v10 = v9;
+    } else {
+        v10 = v9 + 1;
+    }
+    return v9 - (v10 - v10 % 2) + v8 / 2 - 1;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

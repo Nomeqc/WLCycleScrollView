@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05D9A0F9C935B4FBEA2BA701 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		05D9A0F9C935B4FBEA2BA701 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2EEE1DFF99F94D689FA9F746 /* Pods-WLCycleScrollView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WLCycleScrollView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WLCycleScrollView_Tests/Pods-WLCycleScrollView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		39C2B80F3BC3C07319791611 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		39C2B80F3BC3C07319791611 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4A79241AA8D74EECE4E96B39 /* Pods-WLCycleScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WLCycleScrollView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WLCycleScrollView_Example/Pods-WLCycleScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* WLCycleScrollView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WLCycleScrollView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,7 +65,7 @@
 		719A3C10DD4E18A6AB342DCF /* Pods_WLCycleScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WLCycleScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8015B7EF89CFC999B531F76E /* Pods_WLCycleScrollView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WLCycleScrollView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C920B98E0126C4AE1E85EF25 /* WLCycleScrollView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = WLCycleScrollView.podspec; path = ../WLCycleScrollView.podspec; sourceTree = "<group>"; };
+		C920B98E0126C4AE1E85EF25 /* WLCycleScrollView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WLCycleScrollView.podspec; path = ../WLCycleScrollView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FFB6EDCAEF82FEA016B877D0 /* Pods-WLCycleScrollView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WLCycleScrollView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WLCycleScrollView_Example/Pods-WLCycleScrollView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +208,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				BB62F42A116A9B4940FAC6DB /* [CP] Embed Pods Frameworks */,
-				1C7DA64069A9618B3C8BDA34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,8 +226,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				88E67627759FB4466964AEDE /* [CP] Embed Pods Frameworks */,
-				FA73EC27FF065A2B5B47530C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Fallrainy;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 3N95M86243;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -297,21 +297,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C7DA64069A9618B3C8BDA34 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WLCycleScrollView_Example/Pods-WLCycleScrollView_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8139BFEFD34383336608C9A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,21 +315,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88E67627759FB4466964AEDE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WLCycleScrollView_Tests/Pods-WLCycleScrollView_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BB62F42A116A9B4940FAC6DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,10 +322,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WLCycleScrollView_Example/Pods-WLCycleScrollView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/WLCycleScrollView/WLCycleScrollView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WLCycleScrollView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,21 +351,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA73EC27FF065A2B5B47530C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WLCycleScrollView_Tests/Pods-WLCycleScrollView_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -533,6 +490,7 @@
 			baseConfigurationReference = FFB6EDCAEF82FEA016B877D0 /* Pods-WLCycleScrollView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3N95M86243;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WLCycleScrollView/WLCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "WLCycleScrollView/WLCycleScrollView-Info.plist";
@@ -548,6 +506,7 @@
 			baseConfigurationReference = 4A79241AA8D74EECE4E96B39 /* Pods-WLCycleScrollView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3N95M86243;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WLCycleScrollView/WLCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "WLCycleScrollView/WLCycleScrollView-Info.plist";

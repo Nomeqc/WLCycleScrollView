@@ -1,0 +1,25 @@
+PODS:
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - WLCycleScrollView (0.1.0)
+
+DEPENDENCIES:
+  - SDWebImage (~> 4.0)
+  - WLCycleScrollView (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  WLCycleScrollView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  WLCycleScrollView: 5ca372277f5bde6cc2c44d4db8de865d88011e2a
+
+PODFILE CHECKSUM: 183f5b98e5641252837368a556c09484c9c8908b
+
+COCOAPODS: 1.5.3

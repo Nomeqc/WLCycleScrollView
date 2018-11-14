@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'WLCycleScrollView_Example' do
   pod 'WLCycleScrollView', :path => '../'
-
+  pod 'SDWebImage', '~> 4.0'
   target 'WLCycleScrollView_Tests' do
     inherit! :search_paths
 
