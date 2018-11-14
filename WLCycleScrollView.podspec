@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WLCycleScrollView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of WLCycleScrollView.'
+  s.version          = '1.0.0'
+  s.summary          = '简单易用的、灵活易扩展的循环滚动视图'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,16 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-    简单易用的、灵活的支持循环滚动的视图
+    简单易用的灵活的滚动视图
   DESC
 
-  s.homepage         = 'https://github.com/Fallrainy/WLCycleScrollView'
+  s.homepage         = 'https://github.com/Nomeqc/WLCycleScrollView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Fallrainy' => 'xie5405@163.com' }
-  s.source           = { :git => 'https://github.com/Fallrainy/WLCycleScrollView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/Nomeqc/WLCycleScrollView.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'WLCycleScrollView/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'WLCycleScrollView' => ['WLCycleScrollView/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
