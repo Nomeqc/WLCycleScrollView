@@ -13,6 +13,7 @@
 @protocol WLCycleScrollViewDataSource <NSObject>
 
 @required
+
 - (UIView * _Nonnull )cycleScrollView:(WLCycleScrollView *)cycleScrollView pageViewAtIndex:(NSInteger)index;
 
 - (NSUInteger)numberOfPagesInCycleScrollView:(WLCycleScrollView *)cycleScrollView;
@@ -22,6 +23,7 @@
 @protocol WLCycleScrollViewDelegate <NSObject>
 
 @optional
+
 - (void)cycleScrollView:(WLCycleScrollView  *)cycleScrollView didScrollToPageAtIndex:(NSUInteger)index;
 
 - (void)cycleScrollView:(WLCycleScrollView  *)cycleScrollView didTapPageAtIndex:(NSUInteger)index;
@@ -29,6 +31,7 @@
 @end
 
 @protocol WLCycleScrollViewAccessoryProvider <NSObject>
+
 @required
 
 - (UIView * _Nonnull )accessoryView;
@@ -54,6 +57,7 @@
 
 ///启动自动滚动，默认为YES
 @property (nonatomic) BOOL autoScrollEnabled;
+
 ///只有一页的时候 是否隐藏AccessoryView, 默认为YES
 @property (nonatomic) BOOL hidesAccessoryViewForSinglePage;
 

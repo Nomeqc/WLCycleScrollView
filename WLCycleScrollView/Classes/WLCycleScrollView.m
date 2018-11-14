@@ -19,14 +19,13 @@
 @property (nonatomic) NSMutableDictionary<NSNumber *, UIView *> *pageViewCache;
 @property (nonatomic) NSMutableDictionary<NSNumber *, UIView *> *extraPageViewCache;
 
-@property (nonatomic) NSTimer *timer;
-
 @property (nonatomic) BOOL stopScroll;
 
 @end
 
 
 @implementation WLCycleScrollView {
+    NSTimer *_timer;
     NSUInteger _numberOfPages;
 }
 
@@ -157,9 +156,9 @@
         _scrollView.scrollEnabled = YES;
         contentOffsetX = CGRectGetWidth(self.bounds);
         if (_numberOfPages == 2) {
-            pageIndexes = @[@([self preiviousPageIndex]), @(_currentPageIndex)];
+            pageIndexes = @[@([self previousPageIndex]), @(_currentPageIndex)];
         } else {
-            pageIndexes = @[@([self preiviousPageIndex]), @(_currentPageIndex), @([self nextPageIndex])];
+            pageIndexes = @[@([self previousPageIndex]), @(_currentPageIndex), @([self nextPageIndex])];
         }
     } else {
         _scrollView.scrollEnabled = NO;
@@ -236,7 +235,6 @@
     }];
     [_extraPageViewCache removeAllObjects];
     
-    //是否隐藏Accessory View
     [self loadData];
     [self setStopScroll:!_autoScrollEnabled];
 }
@@ -261,7 +259,7 @@
         if (offsetX > 0 * CGRectGetWidth(self.bounds)) {
             return;
         }
-        _currentPageIndex = [self preiviousPageIndex];
+        _currentPageIndex = [self previousPageIndex];
     }
     [self loadData];
     [self updateAccessoryView];
@@ -300,7 +298,7 @@
 }
 
 // MARK: Accessory
-- (NSUInteger)preiviousPageIndex {
+- (NSUInteger)previousPageIndex {
     if (_currentPageIndex > 0) {
         return _currentPageIndex - 1;
     }
@@ -312,18 +310,26 @@
 }
 
 - (NSUInteger)dataSourceNumberOfPagesInCycleScrollView {
-    NSAssert(_dataSource, @"数据源不能为空");
-    NSString *reason = [NSString stringWithFormat:@"%@必须实现数据源方法numberOfPagesInCycleScrollView:",_dataSource];
-    NSAssert([self.dataSource respondsToSelector:@selector(numberOfPagesInCycleScrollView:)], reason);
-    
-    return [self.dataSource numberOfPagesInCycleScrollView:self];
+    if (_dataSource) {
+        NSString *reason = [NSString stringWithFormat:@"%@必须实现WLCycleScrollViewDataSource协议方法numberOfPagesInCycleScrollView:",_dataSource];
+        NSAssert([self.dataSource respondsToSelector:@selector(numberOfPagesInCycleScrollView:)], reason);
+        return [self.dataSource numberOfPagesInCycleScrollView:self];
+    }
+    return 0;
 }
 
 - (UIView *)dataSourcePageViewAtIndex:(NSUInteger)index {
-    NSAssert(_dataSource, @"数据源不能为空");
-    NSString *reason = [NSString stringWithFormat:@"%@必须实现数据源方法cycleScrollView:pageViewAtIndex:",_dataSource];
-    NSAssert([self.dataSource respondsToSelector:@selector(cycleScrollView:pageViewAtIndex:)], reason);
-    return [self.dataSource cycleScrollView:self pageViewAtIndex:index];
+    if (_dataSource) {
+        NSString *reason = [NSString stringWithFormat:@"%@必须实现WLCycleScrollViewDataSource协议方法cycleScrollView:pageViewAtIndex:",_dataSource];
+        NSAssert([self.dataSource respondsToSelector:@selector(cycleScrollView:pageViewAtIndex:)], reason);
+        UIView *view = [self.dataSource cycleScrollView:self pageViewAtIndex:index];
+        reason = [NSString stringWithFormat:@"[%@ cycleScrollView:pageViewAtIndex:] 不能返回nil", NSStringFromClass([_dataSource class])];
+        NSAssert(view, reason);
+        reason = [NSString stringWithFormat:@"[%@ cycleScrollView:pageViewAtIndex:] 返回值类型不属于UIView", NSStringFromClass([_dataSource class])];
+        NSAssert([view isKindOfClass:[UIView class]], reason);
+        return view;
+    }
+    return nil;
 }
 
 - (UIView *)accessoryProviderAccessoryView {

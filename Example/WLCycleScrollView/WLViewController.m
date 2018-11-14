@@ -8,7 +8,6 @@
 
 #import "WLViewController.h"
 #import "WLCycleScrollView.h"
-#import "SDWebImageDownloader.h"
 #import "UIImageView+WebCache.h"
 
 @interface WLViewController () <WLCycleScrollViewDelegate, WLCycleScrollViewDataSource, WLCycleScrollViewAccessoryProvider>
@@ -49,7 +48,6 @@
     
     sender.title = [NSString stringWithFormat:@"随机数据(共%@条)", @(length)];
 }
-
 
 - (IBAction)didTapSwitchBarButton:(UIBarButtonItem *)sender {
     _cycleScrollView.autoScrollEnabled = !_cycleScrollView.autoScrollEnabled;
