@@ -36,7 +36,6 @@
     scrollView.accessoryProvider = self;
     [self.view addSubview:scrollView];
     _cycleScrollView = scrollView;
-    
 }
 
 - (IBAction)didTapRandomBarButton:(UIBarButtonItem *)sender {
@@ -45,7 +44,6 @@
     NSUInteger length = arc4random_uniform((u_int32_t)(dataArray.count - startIndex)) + 1;
     self.images = [dataArray subarrayWithRange:NSMakeRange(startIndex, length)];
     [_cycleScrollView reloadData];
-    
     sender.title = [NSString stringWithFormat:@"随机数据(共%@条)", @(length)];
 }
 
